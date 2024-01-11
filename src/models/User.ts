@@ -1,9 +1,9 @@
-import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Appointment } from "./Appointment";
 
 
 @Entity("users")
-export class User extends BaseEntity {
+export class User{
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -19,23 +19,13 @@ export class User extends BaseEntity {
   @Column()
   email!: string;
 
-  // @Column()
-  // phone_number?: number;
+  @Column()
+  phone_number?: number;
 
   @Column()
-  password_hash!: string;
+  password!: string;
 
-  // @Column()
-  // role?: string;
 
-  // @Column()
-  // is_active?: boolean;
-
-  // @Column()
-  // created_at?: Date;
-
-  // @Column()
-  // updated_at?: Date;
 
   @OneToMany(() => Appointment, appointment => appointment.user)
   appointments?: Appointment[];

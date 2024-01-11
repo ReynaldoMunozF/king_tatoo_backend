@@ -3,14 +3,14 @@ import { User } from "../../models/User";
 
 // -----------------------------------------------------------------------------
 
-export class UserFactory {
-   private static generate() {
-      const user = new User();
+// export class UserFactory {
+//    private static generate() {
+//       const user = new User();
       
-      return user;
-   }
+//       return user;
+//    }
 
-   static create(count = 1) {
-      return Array.from({ length: count }, this.generate);
-   }
-}
+//    static create(count = 1) {
+//       return Array.from({ length: count }, this.generate);
+//    }
+// }

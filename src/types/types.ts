@@ -3,6 +3,6 @@ export interface CreateUserRequestBody {
     email: string;
     first_name: string;
     last_name: string;
+    phone_number?: number;
     password: string;
-    phone_number?: string;
 }

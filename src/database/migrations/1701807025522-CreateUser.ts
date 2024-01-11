@@ -21,11 +21,6 @@ export class CreateUser1701807025522 implements MigrationInterface {
                   isUnique: true,
                },
                {
-                  name: "password",
-                  type: "varchar",
-                  length: "200",
-               },
-               {
                   name: "first_name",
                   type: "varchar",
                   length: "255",
@@ -40,6 +35,17 @@ export class CreateUser1701807025522 implements MigrationInterface {
                   type: "varchar",
                   length: "255",
                   isUnique: true,
+               },
+               {
+                  name: "password",
+                  type: "varchar",
+                  length: "200",
+               },
+               {
+                  name: "phone_number",
+                  type: "varchar",
+                  length: "40",
+                  isNullable: true
                },
             ],
          }),
