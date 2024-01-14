@@ -42,11 +42,22 @@ export class CreateUser1701807025522 implements MigrationInterface {
                   length: "200",
                },
                {
-                  name: "phone_number",
-                  type: "varchar",
-                  length: "40",
-                  isNullable: true
-               },
+                  name: "active",
+                  type: "Tinyint",
+                  default: 1,
+                  length: "1",
+                },
+                {
+                  name: "created_at",
+                  type: "timestamp",
+                  default: "CURRENT_TIMESTAMP"
+              },
+              {
+                  name: "updated_at",
+                  type: "timestamp",
+                  default: "CURRENT_TIMESTAMP",
+                  onUpdate: "CURRENT_TIMESTAMP"
+              },
             ],
          }),
          true

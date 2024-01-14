@@ -1,32 +1,35 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import {
+  BaseEntity,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+} from "typeorm";
 import { Appointment } from "./Appointment";
 
 @Entity("tatoo_artists")
-export class Tattoo_artist extends BaseEntity{
+export class Tattoo_artist {
   @PrimaryGeneratedColumn()
-  id!: number
+  id?: number;
 
   @Column()
-  tattoo_artist!: string
+  nickname!: string;
 
   @Column()
-  password!: string
-
-  @Column()
-  description!: string
-
-  @Column()
-  photo!: string
-
-  @Column()
-  role!: string;
+  first_name!: string;
   
   @Column()
-  created_at!: Date
-  
+  last_name!: string;
+
   @Column()
-  updated_at!: Date
-  
-  @OneToMany(() => Appointment, appointment => appointment.user)
-  appointments!: Appointment[];
+  email!: string;
+
+  @Column()
+  password!: string;
+
+ @Column()
+  active!: Number;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.user)
+  appointments?: Appointment[];
 }

@@ -22,29 +22,8 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
             type: "int",
           },
           {
-            name: "tattoo_id",
-            type: "int",
-          },
-          {
-            name: "date",
-            type: "timestamp",
-          },
-          {
-            name: "status",
-            type: "enum",
-            enum: ["pending", "accomplish"],
-            default: '"pending"',
-          },
-          {
-            name: "created_at",
-            type: "timestamp",
-            default: "CURRENT_TIMESTAMP",
-          },
-          {
-            name: "updated_at",
-            type: "timestamp",
-            default: "CURRENT_TIMESTAMP",
-            onUpdate: "CURRENT_TIMESTAMP",
+            name: "appointment_date",
+            type: "datetime",
           },
         ],
         foreignKeys: [
@@ -60,12 +39,7 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
             referencedColumnNames: ["id"],
             onDelete: "CASCADE",
           },
-          {
-            columnNames: ["tattoo_id"],
-            referencedTableName: "tattoos",
-            referencedColumnNames: ["id"],
-            onDelete: "CASCADE",
-          },
+          
         ],
       }),
       true

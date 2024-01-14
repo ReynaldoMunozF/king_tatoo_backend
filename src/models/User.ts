@@ -20,12 +20,10 @@ export class User{
   email!: string;
 
   @Column()
-  phone_number?: number;
-
-  @Column()
   password!: string;
-
-
+  
+  @Column()
+  active?: Number;
 
   @OneToMany(() => Appointment, appointment => appointment.user)
   appointments?: Appointment[];
