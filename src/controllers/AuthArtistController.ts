@@ -16,7 +16,7 @@ export class AuthArtistController {
 
     const artistRepository = AppDataSource.getRepository(Tattoo_artist);
     
-    try {
+    //try {
       const newArtist: Tattoo_artist = {
         nickname,
         first_name,
@@ -28,13 +28,13 @@ export class AuthArtistController {
       await artistRepository.save(newArtist);
 
       res.status(StatusCodes.CREATED).json({
-        message: "User created succesfully",
+        message: "Artist created succesfully",
       });
-    } catch (error) {
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-        message: "Error while creating user",
-      });
-    }
+    // } catch (error) {
+    //   res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+    //     message: "Error while creating Artist",
+    //   });
+    // }
   }
   async login(req: Request<{}, {}, LoginUserRequestBody>, res: Response): Promise<void | Response<any>> {
     

@@ -16,6 +16,12 @@ export interface CreateArtistRequestBody {
   active?: Number;
 }
 
+export interface CreateAppointmentsRequestBody {
+  user_id: number;
+  tattoo_artist_id: number;
+  appointment_date: Date;
+}
+
 export interface LoginUserRequestBody {
   email: string;
   password: string;

@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import { Appointment } from "./Appointment";
 
-@Entity("tatoo_artists")
+@Entity("tattoo_artists")
 export class Tattoo_artist {
   @PrimaryGeneratedColumn()
   id?: number;
