@@ -1,4 +1,5 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn,CreateDateColumn,
+  UpdateDateColumn } from "typeorm";
 import { Appointment } from "./Appointment";
 
 
@@ -22,9 +23,16 @@ export class User{
   @Column()
   password!: string;
   
+  @CreateDateColumn()
+  created_at?: Date;
+
+  @UpdateDateColumn()
+  updated_at?: Date;
+  
   @Column()
   active?: Number;
 
   @OneToMany(() => Appointment, appointment => appointment.user)
   appointments?: Appointment[];
 }
+

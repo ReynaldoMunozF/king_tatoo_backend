@@ -45,6 +45,17 @@ export class CreateTatooArtist1704813466542 implements MigrationInterface {
             default: 1,
             length: "1",
           },
+          {
+            name: "created_at",
+            type: "timestamp",
+            default: "CURRENT_TIMESTAMP"
+        },
+        {
+            name: "updated_at",
+            type: "timestamp",
+            default: "CURRENT_TIMESTAMP",
+            onUpdate: "CURRENT_TIMESTAMP"
+        },
         ],
       }),
       true

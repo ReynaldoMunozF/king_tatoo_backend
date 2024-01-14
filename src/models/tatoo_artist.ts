@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
 import { Appointment } from "./Appointment";
 
@@ -26,6 +28,12 @@ export class Tattoo_artist {
 
   @Column()
   password!: string;
+
+  @CreateDateColumn()
+  created_at?: Date;
+
+  @UpdateDateColumn()
+  updated_at?: Date;
 
  @Column()
   active!: Number;
