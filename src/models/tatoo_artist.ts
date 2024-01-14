@@ -36,7 +36,7 @@ export class Tattoo_artist {
   updated_at?: Date;
 
  @Column()
-  active!: Number;
+  active?: Number;
 
   @OneToMany(() => Appointment, (appointment) => appointment.user)
   appointments?: Appointment[];

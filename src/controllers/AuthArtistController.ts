@@ -1,31 +1,31 @@
 import { Request, Response } from "express";
-import { CreateUserRequestBody, LoginUserRequestBody, TokenData } from "../types/types";
-import { User } from "../models/User";
+import { CreateArtistRequestBody, LoginUserRequestBody, TokenData } from "../types/types";
+import { Tattoo_artist } from "../models/tatoo_artist";
 import { AppDataSource } from "../database/data-source";
 import bcrypt from "bcrypt";
 import { StatusCodes } from "http-status-codes";
 import jwt from "jsonwebtoken";
 
-export class AuthController {
+export class AuthArtistController {
   async register(
-    req: Request<{}, {}, CreateUserRequestBody>,
+    req: Request<{}, {}, CreateArtistRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { username, first_name, last_name, password, email,  } =
+    const { nickname, first_name, last_name, password, email,  } =
       req.body;
 
-    const userRepository = AppDataSource.getRepository(User);
+    const artistRepository = AppDataSource.getRepository(Tattoo_artist);
     
     try {
-      const newUser: User = {
-        username,
+      const newArtist: Tattoo_artist = {
+        nickname,
         first_name,
         last_name,
         email,
         password: bcrypt.hashSync(password, 10),
       };
 
-      await userRepository.save(newUser);
+      await artistRepository.save(newArtist);
 
       res.status(StatusCodes.CREATED).json({
         message: "User created succesfully",
@@ -40,7 +40,7 @@ export class AuthController {
     
         const { password, email,} = req.body;
     
-        const userRepository = AppDataSource.getRepository(User);
+        const artistRepository = AppDataSource.getRepository(Tattoo_artist);
         try {
           if(!email || !password){
             return res.status(StatusCodes.BAD_REQUEST).json({
@@ -48,7 +48,7 @@ export class AuthController {
             });
 
           }
-          const user = await userRepository.findOne({
+          const user = await artistRepository.findOne({
             where: {
               email: email,
             },

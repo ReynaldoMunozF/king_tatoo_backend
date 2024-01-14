@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 import { StatusCodes } from "http-status-codes";
 import jwt from "jsonwebtoken";
 
-export class AuthController {
+export class AuthUserController {
   async register(
     req: Request<{}, {}, CreateUserRequestBody>,
     res: Response

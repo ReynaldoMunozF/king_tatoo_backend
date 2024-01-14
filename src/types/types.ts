@@ -7,6 +7,15 @@ export interface CreateUserRequestBody {
   active?: Number;
 }
 
+export interface CreateArtistRequestBody {
+  nickname: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  active?: Number;
+}
+
 export interface LoginUserRequestBody {
   email: string;
   password: string;
