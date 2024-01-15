@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
    port: 3307,
    username: "root",
    password: "root",
-   database: "KING_TATOO",
+   database: "King_Tattoo",
    // entities: ["src/models/*.ts"],
    entities: [`${__dirname}/../models/**/*{.js,.ts}`],
    // migrations: ["src/migrations/*.ts"],

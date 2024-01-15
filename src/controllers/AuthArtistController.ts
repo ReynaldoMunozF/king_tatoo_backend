@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateArtistRequestBody, LoginUserRequestBody, TokenData } from "../types/types";
+import { CreateArtistRequestBody, LoginUserRequestBody, ArtistTokenData } from "../types/types";
 import { Tattoo_artist } from "../models/tatoo_artist";
 import { AppDataSource } from "../database/data-source";
 import bcrypt from "bcrypt";
@@ -16,7 +16,7 @@ export class AuthArtistController {
 
     const artistRepository = AppDataSource.getRepository(Tattoo_artist);
     
-    //try {
+    try {
       const newArtist: Tattoo_artist = {
         nickname,
         first_name,
@@ -30,11 +30,11 @@ export class AuthArtistController {
       res.status(StatusCodes.CREATED).json({
         message: "Artist created succesfully",
       });
-    // } catch (error) {
-    //   res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    //     message: "Error while creating Artist",
-    //   });
-    // }
+    } catch (error) {
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        message: "Error while creating Artist",
+      });
+    }
   }
   async login(req: Request<{}, {}, LoginUserRequestBody>, res: Response): Promise<void | Response<any>> {
     
@@ -48,17 +48,17 @@ export class AuthArtistController {
             });
 
           }
-          const user = await artistRepository.findOne({
+          const artist = await artistRepository.findOne({
             where: {
               email: email,
             },
           });
-          if(!user){
+          if(!artist){
             return res.status(StatusCodes.BAD_REQUEST).json({
               message: "Bad email or password"
             });
           }
-          const isPasswordValid = bcrypt.compareSync(password, user.password)
+          const isPasswordValid = bcrypt.compareSync(password, artist.password)
           
           if(!isPasswordValid){
             return res.status(StatusCodes.BAD_REQUEST).json({
@@ -66,12 +66,14 @@ export class AuthArtistController {
             });
           }
           
-          // generar token
+          const tokenPayload: ArtistTokenData = {
+            tattoo_artist_id: artist.id?.toString() as string,
+            
+         };
 
-          // const tokenPayload : TokenData = {
-          //   userId: user.id?.toString() as string,
-          //   userRoles: 
-          // }
+         const token = jwt.sign(tokenPayload, "123", {
+            expiresIn: "3h",
+         });
     
           res.status(StatusCodes.OK).json({
             message: "login succesfully",

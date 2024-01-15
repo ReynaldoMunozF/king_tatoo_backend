@@ -27,8 +27,12 @@ export interface LoginUserRequestBody {
   password: string;
 }
 
-export interface TokenData {
-  userId: string;
-  userRoles: string[];
+export interface UserTokenData {
+  user_id: string;
+ 
+}
+export interface ArtistTokenData {
+  tattoo_artist_id: string;
+ 
 }
 

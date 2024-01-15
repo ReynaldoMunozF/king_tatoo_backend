@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateUserRequestBody, LoginUserRequestBody, TokenData } from "../types/types";
+import { CreateUserRequestBody, LoginUserRequestBody, UserTokenData } from "../types/types";
 import { User } from "../models/User";
 import { AppDataSource } from "../database/data-source";
 import bcrypt from "bcrypt";
@@ -66,19 +66,27 @@ export class AuthUserController {
             });
           }
           
-          // generar token
+          
 
-          // const tokenPayload : TokenData = {
-          //   userId: user.id?.toString() as string,
-          //   userRoles: 
-          // }
+         const tokenPayload: UserTokenData = {
+            user_id: user.id?.toString() as string,
+            
+         };
+
+         const token = jwt.sign(tokenPayload, "123", {
+            expiresIn: "3h",
+         });
+
     
           res.status(StatusCodes.OK).json({
             message: "login succesfully",
+            token
           });
         } catch (error) {
           res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             message: "Error while login",
+            
+            
           });
         }
   }

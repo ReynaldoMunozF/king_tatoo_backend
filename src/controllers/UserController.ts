@@ -91,4 +91,3 @@ export class UserController implements Controller {
    }
 }
 
-}
