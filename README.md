@@ -2,6 +2,8 @@
 
 ## king_tattoo
 
+!['imagen-db'](./img/LOGO.png)
+
 <details>
   <summary>Contenido 📝</summary>
   <ol>
