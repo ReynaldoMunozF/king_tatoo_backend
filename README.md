@@ -1,5 +1,7 @@
 # Welcome to my backend app
 
+## king_tattoo
+
 <details>
   <summary>Contenido 📝</summary>
   <ol>
@@ -24,7 +26,7 @@
 Este proyecto requería una API funcional conectada a una base de datos con al menos una relación de uno a muchos y una relación de muchos a muchos.
 
 ## Sobre el proyecto
-Decidí crear una aplicación web para ayudar a los amantes del gimnasio, que les permitiría crear y realizar un seguimiento de nuevas rutinas para sus ejercicios diarios. He visto muchas apps de este estilo pero ninguna que nos permita cambiar tan libremente las rutinas adaptandolas a nuestras necesidades.    
+Decidí crear una aplicación web para ayudar a los amantes del tatuaje, que les permitiría crear y realizar un seguimiento de sus citas asi como solicitar alguna nueva. 
 
 ## Deploy 🚀
 <div align="center">
@@ -34,8 +36,7 @@ Decidí crear una aplicación web para ayudar a los amantes del gimnasio, que le
 ## Stack
 Tecnologías utilizadas:
 <div align="center">
-<a href="https://www.mongodb.com/">
-    <img src= "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
+<a href="https://www.mysql.com/">
 </a>
 <a href="https://www.expressjs.com/">
     <img src= "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
@@ -50,16 +51,15 @@ Tecnologías utilizadas:
 
 
 ## Diagrama BD
-!['imagen-db'](./images/sampleDb.png)
+!['imagen-db'](./img/bbdd.png)
 
 ## Instalación en local
 1. Clonar el repositorio
 2. ` $ npm install `
 3. Conectamos nuestro repositorio con la base de datos 
 4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
-6. ``` $ npm run dev ``` 
-7. ...
+5. ``` $ npm run dev ``` 
+
 
 ## Endpoints
 <details>
@@ -89,18 +89,15 @@ Tecnologías utilizadas:
                 "password": "princes"
             }
         ```
-- RUTINAS
-    - RECUPERAR RUTINAS  
 
-            GET http://localhost:3000/api/rutina
 
     - ...
 </details>
 
 ## Futuras funcionalidades
-[ ] Añadir create book  
-[ ] Añadir logs  con winston  
-[ ] Validaciones de la solicitud con express-validator  
+[ ] Añadir admin, superadmin 
+[ ] Vizualizar Diseño de tattoo
+ 
 [ ] ...
 
 ## Contribuciones
@@ -125,7 +122,7 @@ Puedes hacerlo de dos maneras:
     - Abre una solicitud de Pull Request
 
 ## Licencia
-Este proyecto se encuentra bajo licencia de "Mi Nombre"
+Este proyecto se encuentra bajo licencia de "ReynaldoM"
 
 ## Webgrafia:
 Para conseguir mi objetivo he recopilado información de:
@@ -145,13 +142,13 @@ Para conseguir mi objetivo he recopilado información de:
 
 Agradezco a mis compañeros el tiempo dedicado a este proyecto:
 
-- *Jose*  
+- *Erika*  
 <a href="https://github.com/Dave86dev" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> 
 
-- **David**  
+- **Gabriel**  
 <a href="https://www.github.com/userGithub/" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=red" target="_blank"></a>
 
-- ***Mara***  
+- ***Rodrigo***  
 <a href="https://www.github.com/userGithub/" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=green" target="_blank"></a> 
 
 ## Contacto

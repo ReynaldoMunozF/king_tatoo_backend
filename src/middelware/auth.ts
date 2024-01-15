@@ -17,20 +17,10 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
    }
 
    try {
-      // Decodificar el token
+      
       const decoded = jwt.verify(token, "123") as JwtPayload;
 
       console.log(decoded);
-
-    //   // Modificar el objeto Request con los datos del payload
-
-    //   const decodedPayload: UserTokenData = {
-    //      user_id: decoded.userId,
-         
-    //   };
-
-    //   req.tokenData = decodedPayload;
-
       next();
    } catch (error) {
       res.status(StatusCodes.UNAUTHORIZED).json({
