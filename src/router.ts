@@ -9,10 +9,7 @@ const router = express.Router();
 
 router.use("/authUser", authUserRoutes);
 router.use("/authArtist", authArtistRoutes);
-
 router.use("/api/users", userRoutes);
-
-router.use("/get/appointments/", appointmentRoutes);
-
+router.use("/appointments/", appointmentRoutes);
 
 export default router;

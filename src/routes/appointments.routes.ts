@@ -6,9 +6,12 @@ const router = express.Router();
 const appointmentController = new AppointmentController();
 
 router.get("/", appointmentController.getAll)
-router.post("/newAppointment", appointmentController.create)
-router.get("/:id", appointmentController.getById)
+router.post("/appointment", appointmentController.create)
 router.patch("/:id", appointmentController.update);
+
+
+router.get("/users/:id", appointmentController.getById)
+router.get("/artists/:id", appointmentController.getByArtist)
 
 export default router;
 
