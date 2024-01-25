@@ -95,7 +95,9 @@ export class AppointmentController implements Controller {
       const data = req.body;
       const appointmentRepository = AppDataSource.getRepository(Appointment);
       const newAppointment = await appointmentRepository.save(data);
-      res.status(201).json(newAppointment);
+      res.status(201).json({
+        newAppointment,
+        message: "appointment create successfully"});
     } catch (error: any) {
       console.error("Error while creating Appointment:", error);
       res.status(500).json({

@@ -6,7 +6,7 @@ const router = express.Router();
 const appointmentController = new AppointmentController();
 
 router.get("/", appointmentController.getAll)
-router.post("/appointment", appointmentController.create)
+router.post("/", appointmentController.create)
 router.patch("/:id", appointmentController.update);
 
 

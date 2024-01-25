@@ -9,7 +9,6 @@
   <ol>
     <li><a href="#objetivo">Objetivo</a></li>
     <li><a href="#sobre-el-proyecto">Sobre el proyecto</a></li>
-    <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagrama-bd">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
@@ -65,29 +64,90 @@ Tecnologías utilizadas:
 <summary>Endpoints</summary>
 
 - AUTH
-    - REGISTER
+    - REGISTER USER
 
-            POST http://localhost:3000/api/register
+            POST http://localhost:3000/authUser/register
         body:
         ``` js
             {
-                "user": "David",
-                "email": "david@david.com",
-                "password": "princes"
+                "username" : "nuevoreynaldo52.munoz",
+                "first_name": "reynaldo",
+                "last_name": "munoz",
+                "email" : "nuevoreynaldo52@example.com",
+                "password": "123456"
             }
         ```
 
     - LOGIN
 
-            POST http://localhost:3000/api/login  
+            POST http://localhost:3000/authUser/login  
         body:
         ``` js
             {
-                "user": "David",
-                "email": "david@david.com",
-                "password": "princes"
+                
+                 "email": "nuevoreynaldo52@example.com",
+                 "password":"123456"
+
             }
         ```
+    - USER PROFILE
+
+            GET http://localhost:3000/api/users/1  
+       
+    - UPDATE PROFILE
+
+            PATCH http://localhost:3000/api/users/10 
+        body:
+        ``` js
+             {
+                "username" : "cambionuevoreynaldo52.munoz",
+                "first_name": "cambioreynaldo",
+                "last_name": "munoz",
+                "email" : "cambionuevoreynaldo52@example.com",
+                "password": "123456"
+            }
+        ```
+    - APPOINTMENT CREATION
+
+            POST http://localhost:3000/appointments/ 
+        body:
+        ``` js
+            {
+                
+                  "user_id": 1,
+                  "tattoo_artist_id": 1,
+                  "appointment_date": "2024-04-17 10:30:00"
+
+            }
+        ```
+        
+    - APPOINTMENT UPDATE
+
+            PATCH http://localhost:3000/appointments/1
+        body:
+        ``` js
+            {
+                
+                  "user_id": 1,
+                  "tattoo_artist_id": 2,
+                  "appointment_date": "2024-04-21 10:30:00"
+
+            }
+        ```
+     - APPOINTMENT DELETE
+
+            DELETE http://localhost:3000/appointments/1
+
+     - APPOINTMENT FOR USERS
+
+            GET http://localhost:3000/appointments/users/1 
+
+     - APPOINTMENT FOR TATTOO_ARTIST
+
+            GET http://localhost:3000/appointments/artists/1 
+
+
+
 
 
     - ...
