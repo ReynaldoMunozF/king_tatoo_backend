@@ -25,20 +25,17 @@
 </details>
 
 ## Objetivo
-Este proyecto requería una API funcional conectada a una base de datos con al menos una relación de uno a muchos y una relación de muchos a muchos.
+Este proyecto requería una API funcional conectada a una base de datos 
 
 ## Sobre el proyecto
 Decidí crear una aplicación web para ayudar a los amantes del tatuaje, que les permitiría crear y realizar un seguimiento de sus citas asi como solicitar alguna nueva. 
 
-## Deploy 🚀
-<div align="center">
-    <a href="https://www.google.com"><strong>Url a producción </strong></a>🚀🚀🚀
-</div>
 
 ## Stack
 Tecnologías utilizadas:
 <div align="center">
 <a href="https://www.mysql.com/">
+    <img src= "https://shields.io/badge/MySQL-lightgrey?logo=mysql&style=plastic&logoColor=white&labelColor=blue"/>
 </a>
 <a href="https://www.expressjs.com/">
     <img src= "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
