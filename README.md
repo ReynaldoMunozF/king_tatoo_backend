@@ -37,7 +37,7 @@ Tecnologías utilizadas:
 
 
 ## Diagrama BD
-!['imagen-db'](./img/bbdd.png)
+!['imagen-db'](./img/bbdd_king_tattoo_2.png)
 
 ## Instalación en local
 1. Clonar el repositorio
