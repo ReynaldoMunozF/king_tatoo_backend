@@ -11,7 +11,7 @@ export class AuthUserController {
     req: Request<{}, {}, CreateUserRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { username, first_name, last_name, password, email,  } =
+    const { username, first_name, last_name, password, email,phone, birthday } =
       req.body;
 
     const userRepository = AppDataSource.getRepository(User);
@@ -22,6 +22,8 @@ export class AuthUserController {
         first_name,
         last_name,
         email,
+        phone,
+        birthday,
         password: bcrypt.hashSync(password, 10),
       };
 

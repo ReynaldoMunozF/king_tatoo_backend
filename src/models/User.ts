@@ -21,6 +21,12 @@ export class User{
   email!: string;
 
   @Column()
+  phone!: Number;
+  
+  @Column()
+  birthday?: Date;
+  
+  @Column()
   password!: string;
   
   @CreateDateColumn()
