@@ -20,7 +20,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
       
       const decoded = jwt.verify(token, "123") as JwtPayload;
 
-      console.log(decoded);
+     
 
       next();
    } catch (error) {

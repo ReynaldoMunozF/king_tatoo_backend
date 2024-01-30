@@ -63,40 +63,42 @@ Tecnologías utilizadas:
 <details>
 <summary>Endpoints</summary>
 
+http://localhost:3000
 
     - REGISTER USER
 
-            POST http://localhost:3000/authUser/register
+            POST /api/authUser/register
         body:
         ``` js
-            {
-                "username" : "nuevoreynaldo52.munoz",
-                "first_name": "reynaldo",
-                "last_name": "munoz",
-                "email" : "nuevoreynaldo52@example.com",
-                "password": "123456"
-            }
+           {
+            "username" : "usuario.prueba.register",
+            "first_name": "prueba",
+            "last_name": "prueba",
+            "password": "123456",
+            "phone": "789456123",
+            "email" : "usuario.prueba.register@example.com"
+           }
         ```
 
     - LOGIN
 
-            POST http://localhost:3000/authUser/login  
+            POST /api/authUser/login  
         body:
         ``` js
             {
                 
-                 "email": "nuevoreynaldo52@example.com",
+                 "email": "usuario.prueba.register@example.com",
                  "password":"123456"
 
             }
         ```
-    - USER PROFILE
+    - USER PROFILE 
 
-            GET http://localhost:3000/api/users/1  
+            GET /api/users/1   MIDDLEWARE (auth) 
        
-    - UPDATE PROFILE
+    - UPDATE PROFILE 
 
-            PATCH http://localhost:3000/api/users/10 
+            PATCH /api/users/1    MIDDLEWARE (auth)
         body:
         ``` js
              {
@@ -107,9 +109,53 @@ Tecnologías utilizadas:
                 "password": "123456"
             }
         ```
+    - REGISTER ARTIST
+
+            POST /api/authArtist/register
+        body:
+        ``` js
+           {
+                "nickname" : "aaaaaUsiarioPriebaCita",
+                "first_name": "UsiarioPriebaCi",
+                "last_name": "FuCita",
+                "password": "123456",
+                "email" : "caaaaaita@example.com",
+                "role" : "admin"    
+           }
+        ```
+
+    - LOGIN
+
+            POST /api/authArtist/login  
+        body:
+        ``` js
+            {
+                
+                 "password": "123456",
+                "email" : "caaaaaita@example.com"
+
+            }
+        ```
+    - ARTIST PROFILE 
+
+            GET /api/authArtist/1   MIDDLEWARE (authArtist , isAdmin) 
+       
+    - UPDATE  ARTIST PROFILE 
+
+            PATCH /api/authArtist/1   MIDDLEWARE (authArtist , isAdmin) 
+        body:
+        ``` js
+             {
+                "nickname" : "UsiarioPriebaCita",
+                "first_name": "PRUEBAUsiarioPriebaCi",
+                "last_name": "PRUEBAFuCita",
+            }
+        ```
+
+        
     - APPOINTMENT CREATION
 
-            POST http://localhost:3000/appointments/ 
+            POST /api/appointments/ 
         body:
         ``` js
             {
@@ -123,7 +169,7 @@ Tecnologías utilizadas:
         
     - APPOINTMENT UPDATE
 
-            PATCH http://localhost:3000/appointments/1
+            PATCH /api/appointments/1
         body:
         ``` js
             {
@@ -136,16 +182,16 @@ Tecnologías utilizadas:
         ```
      - APPOINTMENT DELETE
 
-            DELETE http://localhost:3000/appointments/1
+            DELETE /api/appointments/1
 
-     - APPOINTMENT FOR USERS
+     - USER APPOINTMENT
 
-            GET http://localhost:3000/appointments/users/1 
+            GET /api/users/1/appointments
 
-     - APPOINTMENT FOR TATTOO_ARTIST
+     - TATTOO_ARTIST APPOINTMENT
 
-            GET http://localhost:3000/appointments/artists/1 
-
+            GET /api/artist/1/appointments  MIDDLEWARE (authArtist)
+ 
 
 
 

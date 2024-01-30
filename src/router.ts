@@ -8,10 +8,10 @@ import artistRoutes from "./routes/artist.routes";
 
 const router = express.Router();
 
-router.use("/authUser", authUserRoutes);
-router.use("/authArtist", authArtistRoutes);
+router.use("/api/authUser", authUserRoutes);
+router.use("/api/authArtist", authArtistRoutes);
 router.use("/api/users", userRoutes);
 router.use("/api/artist", artistRoutes);
-router.use("/appointments/", appointmentRoutes);
+router.use("/api/appointments/", appointmentRoutes);
 
 export default router;

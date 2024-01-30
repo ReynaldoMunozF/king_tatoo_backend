@@ -14,7 +14,7 @@ export const authArtist = (req: Request, res: Response, next: NextFunction) => {
 
    if (!token) {
       return res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "no hay token Unauthorized",
+         message: "Unauthorized",
       });
    }
 
@@ -22,7 +22,7 @@ export const authArtist = (req: Request, res: Response, next: NextFunction) => {
       
       const decoded = jwt.verify(token, "123") as JwtPayload;
 
-      console.log(decoded);
+     
 
       const decodedPayload: ArtistTokenData = {
         
@@ -35,7 +35,7 @@ export const authArtist = (req: Request, res: Response, next: NextFunction) => {
       next();
    } catch (error) {
       res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "soy el Unauthorized del catch",
+         message: "Unauthorized",
       });
    }
 };
