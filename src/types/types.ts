@@ -15,6 +15,7 @@ export interface CreateArtistRequestBody {
   last_name: string;
   email: string;
   password: string;
+  role: string;
   active?: Number;
 }
 
@@ -31,10 +32,12 @@ export interface LoginUserRequestBody {
 
 export interface UserTokenData {
   user_id: string;
+  name : string;
  
 }
 export interface ArtistTokenData {
   tattoo_artist_id: string;
+  role: string;
  
 }
 

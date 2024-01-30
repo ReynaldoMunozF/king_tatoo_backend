@@ -8,9 +8,9 @@ const router = express.Router();
 const userController = new UserController();
 
 router.get("/", userController.getAll);
-router.get("/:id", userController.getById);
+router.get("/:id", auth, userController.getById);
 router.post("/", userController.create);
-router.patch("/:id", userController.update);
+router.patch("/:id", auth,userController.update);
 router.delete("/:id", auth, userController.delete);
 
 export default router;

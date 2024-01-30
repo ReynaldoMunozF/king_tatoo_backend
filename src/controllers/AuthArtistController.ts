@@ -11,7 +11,7 @@ export class AuthArtistController {
     req: Request<{}, {}, CreateArtistRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { nickname, first_name, last_name, password, email,  } =
+    const { nickname, first_name, last_name, password, email, role } =
       req.body;
 
     const artistRepository = AppDataSource.getRepository(Tattoo_artist);
@@ -23,6 +23,9 @@ export class AuthArtistController {
         last_name,
         email,
         password: bcrypt.hashSync(password, 10),
+        role,
+
+        // rolename: [ArtistRoles.ADMIN]
       };
 
       await artistRepository.save(newArtist);
@@ -68,6 +71,8 @@ export class AuthArtistController {
           
           const tokenPayload: ArtistTokenData = {
             tattoo_artist_id: artist.id?.toString() as string,
+            role: artist.role,
+            
             
          };
 
@@ -77,6 +82,7 @@ export class AuthArtistController {
     
           res.status(StatusCodes.OK).json({
             message: "login succesfully",
+            token,
           });
         } catch (error) {
           res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

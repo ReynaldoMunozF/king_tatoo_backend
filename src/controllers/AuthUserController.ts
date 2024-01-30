@@ -72,6 +72,7 @@ export class AuthUserController {
 
          const tokenPayload: UserTokenData = {
             user_id: user.id?.toString() as string,
+            name: user.username
             
          };
 

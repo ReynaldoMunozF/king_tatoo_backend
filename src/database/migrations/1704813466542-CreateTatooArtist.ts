@@ -40,6 +40,12 @@ export class CreateTatooArtist1704813466542 implements MigrationInterface {
             isUnique: true,
           },
           {
+            name: "role",
+            type: "enum",
+            enum: ["user", "admin", "super_admin"],
+            default: '"user"'
+        },
+          {
             name: "active",
             type: "Tinyint",
             default: 1,

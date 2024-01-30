@@ -1,18 +1,20 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import jwt, { JwtPayload, decode } from "jsonwebtoken";
-import { UserTokenData } from "../types/types";
+import { ArtistTokenData,  } from "../types/types";
 
 // -----------------------------------------------------------------------------
 
-export const auth = (req: Request, res: Response, next: NextFunction) => {
+export const authArtist = (req: Request, res: Response, next: NextFunction) => {
    req.headers;
 
    const token = req.headers.authorization?.split(" ")[1];
 
+   console.log(token)
+
    if (!token) {
       return res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "Unauthorized",
+         message: "no hay token Unauthorized",
       });
    }
 
@@ -22,10 +24,18 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
       console.log(decoded);
 
+      const decodedPayload: ArtistTokenData = {
+        
+         tattoo_artist_id: decoded.tattoo_artist_id,
+         role: decoded.role,
+      };
+
+      req.tokenData = decodedPayload;
+
       next();
    } catch (error) {
       res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "Unauthorized",
+         message: "soy el Unauthorized del catch",
       });
    }
 };

@@ -5,9 +5,12 @@ import {
   Column,
   OneToMany,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  
+  
 } from "typeorm";
 import { Appointment } from "./Appointment";
+
 
 @Entity("tattoo_artists")
 export class Tattoo_artist {
@@ -25,6 +28,9 @@ export class Tattoo_artist {
 
   @Column()
   email!: string;
+  
+  @Column()
+  role!: string;
 
   @Column()
   password!: string;
@@ -36,8 +42,10 @@ export class Tattoo_artist {
   updated_at?: Date;
 
  @Column()
-  active?: Number;
+  active?: Number; 
 
   @OneToMany(() => Appointment, (appointment) => appointment.user)
   appointments?: Appointment[];
+
+  
 }
