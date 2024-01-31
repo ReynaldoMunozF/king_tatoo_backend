@@ -10,9 +10,8 @@ const router = express.Router();
 const artistController = new ArtistController();
 const appointmentController = new AppointmentController();
 
-router.get("/", artistController.getAll);
+router.get("/", authArtist, isAdmin, artistController.getAll);
 router.get("/:id", authArtist, isAdmin, artistController.getById);
-router.post("/", artistController.create);
 router.patch("/:id", authArtist, isAdmin, artistController.update);
 router.delete("/:id", authArtist, isAdmin, artistController.delete);
 router.get("/:id/appointments", authArtist, appointmentController.getByArtist);
