@@ -13,7 +13,6 @@ const appointmentController = new AppointmentController();
 
 router.get("/", authArtist, isSuperAdmin, userController.getAll);
 router.get("/:id", auth, userController.getById);
-router.post("/", userController.create);
 router.patch("/:id", auth, userController.update);
 router.delete("/:id", auth, userController.delete);
 
