@@ -11,7 +11,7 @@ export class AuthUserController {
     req: Request<{}, {}, CreateUserRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { username, first_name, last_name, password, email,phone, birthday } =
+    const { username, first_name, last_name, password, email, birthday } =
       req.body;
 
     const userRepository = AppDataSource.getRepository(User);
@@ -22,7 +22,6 @@ export class AuthUserController {
         first_name,
         last_name,
         email,
-        phone,
         birthday,
         password: bcrypt.hashSync(password, 10),
       };
@@ -32,7 +31,8 @@ export class AuthUserController {
       res.status(StatusCodes.CREATED).json({
         message: "User created succesfully",
       });
-    } catch (error) {
+    } 
+    catch (error) {
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         message: "Error while creating user",
       });

@@ -3,6 +3,7 @@ import authUserRoutes from "./routes/authUser.routes";
 import authArtistRoutes from "./routes/authArtist.routes";
 import userRoutes from "./routes/users.routes";
 import appointmentRoutes from "./routes/appointments.routes";
+import schedulesRoutes from "./routes/schedules.routes";
 import artistRoutes from "./routes/artist.routes";
 // -----------------------------------------------------------------------------
 
@@ -13,5 +14,6 @@ router.use("/api/authArtist", authArtistRoutes);
 router.use("/api/users", userRoutes);
 router.use("/api/artist", artistRoutes);
 router.use("/api/appointments/", appointmentRoutes);
+router.use("/api/schedules/", schedulesRoutes);
 
 export default router;

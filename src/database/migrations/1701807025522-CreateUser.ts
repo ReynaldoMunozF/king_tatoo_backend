@@ -40,6 +40,7 @@ export class CreateUser1701807025522 implements MigrationInterface {
                   name: "phone",
                   type: "int",
                   length: "9",
+                  isNullable: true,
                },
                {
                   name: "birthday",

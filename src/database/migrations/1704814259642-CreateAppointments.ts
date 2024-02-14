@@ -23,7 +23,20 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
           },
           {
             name: "appointment_date",
-            type: "datetime",
+            type: "date",
+          },
+
+          {
+            name: "hour",
+            type: "varchar",
+            length: "255",
+          },
+
+          {
+            name: "active",
+            type: "Tinyint",
+            default: 1,
+            length: "1",
           },
         ],
         foreignKeys: [
@@ -39,7 +52,6 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
             referencedColumnNames: ["id"],
             onDelete: "CASCADE",
           },
-          
         ],
       }),
       true

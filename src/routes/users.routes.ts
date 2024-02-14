@@ -11,7 +11,7 @@ const router = express.Router();
 const userController = new UserController();
 const appointmentController = new AppointmentController();
 
-router.get("/", authArtist, isSuperAdmin, userController.getAll);
+router.get("/",  userController.getAll);
 router.get("/:id", auth, userController.getById);
 router.patch("/:id", auth, userController.update);
 router.delete("/:id", auth, userController.delete);

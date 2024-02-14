@@ -21,7 +21,7 @@ export class User{
   email!: string;
 
   @Column()
-  phone!: Number;
+  phone?: Number;
   
   @Column()
   birthday?: Date;

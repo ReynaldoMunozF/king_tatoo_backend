@@ -10,7 +10,9 @@ export class ArtistController implements Controller {
    async getAll(req: Request, res: Response): Promise<void | Response<any>> {
       try {
          const artistRepository = AppDataSource.getRepository(Tattoo_artist);
-         const allUsers = await artistRepository.find();
+         const allUsers = await artistRepository.find({
+            select: ['nickname','id']
+         });
          res.status(200).json(allUsers);
       } catch (error) {
          res.status(500).json({

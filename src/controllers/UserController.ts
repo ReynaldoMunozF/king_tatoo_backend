@@ -20,11 +20,14 @@ export class UserController implements Controller {
 
    async getById(req: Request, res: Response): Promise<void | Response<any>> {
       try {
-         const id = +req.params.id;
+         const userId = +req.params.id;
 
          const userRepository = AppDataSource.getRepository(User);
          const user = await userRepository.findOneBy({
-            id: id,
+           
+               id: userId,
+            
+            
          });
 
          if (!user) {
