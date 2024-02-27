@@ -1,8 +1,9 @@
 import { Controller } from "./Controller";
 import { Request, Response } from "express";
 import { User } from "../models/User";
-import { AppDataSource } from "../database/data-source";
 import { Tattoo_artist } from "../models/tatoo_artist";
+import { AppDataSource } from "../database/data-source";
+
 
 // -----------------------------------------------------------------------------
 
@@ -23,11 +24,12 @@ export class ArtistController implements Controller {
 
    async getById(req: Request, res: Response): Promise<void | Response<any>> {
       try {
-         const id = +req.params.id;
+         const artistid = +req.params.id;
 
          const artistRepository = AppDataSource.getRepository(Tattoo_artist);
          const user = await artistRepository.findOneBy({
-            id: id,
+            id: artistid,
+            
          });
 
          if (!user) {
@@ -63,7 +65,7 @@ export class ArtistController implements Controller {
          const id = +req.params.id;
          const data = req.body;
 
-         const userRepository = AppDataSource.getRepository(User);
+         const userRepository = AppDataSource.getRepository(Tattoo_artist);
          await userRepository.update({ id: id }, data);
 
          res.status(202).json({

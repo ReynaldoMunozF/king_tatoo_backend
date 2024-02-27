@@ -88,7 +88,7 @@ npx typeorm entity:create ./src/models/Enrollment
 
 CREATE USERS
 
-INSERT INTO users (username, phone, password, first_name, last_name, birthday, email) VALUES
+INSERT INTO users ( phone, password, first_name, last_name, birthday, email) VALUES
 ('john_doe', '+1234567890', 'pass123', 'John', 'Doe', '1990-05-15', 'john.doe@example.com'),
 ('jane_smith', '+1987654321', 'abc456', 'Jane', 'Smith', '1988-08-20', 'jane.smith@example.com'),
 ('mike_jackson', '+1122334455', 'mikepass', 'Mike', 'Jackson', '1975-02-10', 'mike.jackson@example.com'),
@@ -124,3 +124,16 @@ INSERT INTO tattoo_artists (nickname, password, first_name, last_name, email, ro
 ('traveler', 'travelpass', 'Olivia', 'Gonzalez', 'olivia.gonzalez@example.com', 'admin'),
 ('foodie', 'foodpass', 'Ethan', 'Sanchez', 'ethan.sanchez@example.com', 'admin'),
 ('fitnessjunkie', 'fitnesspass', 'Ava', 'Ramirez', 'ava.ramirez@example.com', 'admin');
+
+
+Luna Mariposa (298 caracteres): Luna es una artista del tatuaje cuyos diseños fusionan la naturaleza con la geometría sagrada. Cada obra es un fascinante reflejo del alma, capturando la esencia misma de la vida en formas y patrones intrincados que invitan a la contemplación y la conexión espiritual.
+
+Raven Ink (274 caracteres): Raven, el tatuador gótico, es maestro en crear diseños oscuros y misteriosos que cuentan historias profundas a través de la tinta. Sus obras, llenas de simbolismo y detalle, se convierten en ventanas hacia mundos secretos donde la imaginación se desata.
+
+Zen Master (259 caracteres): Zen, un tatuador minimalista, transmite paz y armonía a través de líneas limpias y simetría perfecta. Sus diseños, elegantes en su simplicidad, invitan a la contemplación y reflejan la belleza en la pureza de las formas.
+
+Wild Canvas (290 caracteres): Conocido como "Wild", este tatuador celebra la vida y la naturaleza con diseños coloridos y vibrantes que capturan la atención. Cada tatuaje es una explosión de energía y alegría, una expresión audaz de la belleza del mundo que nos rodea.
+
+Ink Scribe (237 caracteres): Scribe, el tatuador literario, convierte palabras en arte con una caligrafía excepcional. Sus tatuajes, adornados con pasajes de libros y citas inspiradoras, son testimonios vivientes de la belleza de la palabra escrita.
+
+Electric Pulse (281 caracteres): Pulse, el tatuador futurista, fusiona tecnología y arte en diseños electrificantes que brillan con colores vibrantes y líneas dinámicas. Sus tatuajes son como fragmentos de un mundo distópico, donde la creatividad y la innovación se unen en perfecta armonía.

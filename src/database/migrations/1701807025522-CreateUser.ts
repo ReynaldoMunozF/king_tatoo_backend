@@ -14,12 +14,7 @@ export class CreateUser1701807025522 implements MigrationInterface {
                   isGenerated: true,
                   generationStrategy: "increment",
                },
-               {
-                  name: "username",
-                  type: "varchar",
-                  length: "40",
-                  isUnique: true,
-               },
+              
                {
                   name: "first_name",
                   type: "varchar",
@@ -38,8 +33,8 @@ export class CreateUser1701807025522 implements MigrationInterface {
                },
                {
                   name: "phone",
-                  type: "int",
-                  length: "9",
+                  type: "varchar",
+                  length: "255",
                   isNullable: true,
                },
                {

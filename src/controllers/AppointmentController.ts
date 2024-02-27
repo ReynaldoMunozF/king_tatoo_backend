@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import { Appointment } from "../models/Appointment";
+import { User } from "../models/User";
+import { Tattoo_artist } from "../models/tatoo_artist";
 import { AppDataSource } from "../database/data-source";
 import { Controller } from "./Controller";
 import { CreateAppointmentsRequestBody } from "../types/types";
@@ -69,9 +71,27 @@ export class AppointmentController implements Controller {
     try {
       const id = +req.params.id;
       const appointmentRepository = AppDataSource.getRepository(Appointment);
-      const appointments = await appointmentRepository.findBy({
-        tattoo_artist_id: id,
-      });
+      const appointments = await appointmentRepository.find({
+        
+        relations:{
+          user : true,
+          
+        },
+        select:{
+        tattoo_artist_id:true,
+        id:true,
+        appointment_date :true,
+        hour :true,
+        user:{
+          first_name:true,
+          last_name:true,
+          phone:true,
+        }
+
+  
+
+      }
+    });
 
       if (!appointments) {
         return res.status(404).json({

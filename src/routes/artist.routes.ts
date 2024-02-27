@@ -13,7 +13,7 @@ const appointmentController = new AppointmentController();
 const scheduleController = new ScheduleController();
 
 router.get("/", artistController.getAll);
-router.get("/:id", authArtist, isAdmin, artistController.getById);
+router.get("/:id", artistController.getById);
 router.patch("/:id", authArtist, isAdmin, artistController.update);
 router.delete("/:id", authArtist, isAdmin, artistController.delete);
 router.get("/:id/appointments", authArtist, appointmentController.getByArtist);

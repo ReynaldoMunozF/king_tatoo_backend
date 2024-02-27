@@ -11,7 +11,7 @@ export class AuthArtistController {
     req: Request<{}, {}, CreateArtistRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { nickname, first_name, last_name, password, email, role } =
+    const { nickname, first_name, last_name, password, email, role,  description } =
       req.body;
 
     const artistRepository = AppDataSource.getRepository(Tattoo_artist);
@@ -19,11 +19,13 @@ export class AuthArtistController {
     try {
       const newArtist: Tattoo_artist = {
         nickname,
+        description,
         first_name,
         last_name,
         email,
         password: bcrypt.hashSync(password, 10),
         role,
+        
 
         // rolename: [ArtistRoles.ADMIN]
       };

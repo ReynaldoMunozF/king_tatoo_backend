@@ -11,14 +11,14 @@ export class AuthUserController {
     req: Request<{}, {}, CreateUserRequestBody>,
     res: Response
   ): Promise<void | Response<any>> {
-    const { username, first_name, last_name, password, email, birthday } =
+    const { first_name, last_name, password, email, birthday } =
       req.body;
 
     const userRepository = AppDataSource.getRepository(User);
     
     try {
       const newUser: User = {
-        username,
+       
         first_name,
         last_name,
         email,
@@ -54,6 +54,10 @@ export class AuthUserController {
             where: {
               email: email,
             },
+            select:{
+              id :true,
+              password: true
+            }
           });
           if(!user){
             return res.status(StatusCodes.BAD_REQUEST).json({
@@ -72,7 +76,6 @@ export class AuthUserController {
 
          const tokenPayload: UserTokenData = {
             user_id: user.id?.toString() as string,
-            name: user.username
             
          };
 

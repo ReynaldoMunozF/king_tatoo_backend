@@ -8,11 +8,7 @@ import { authArtist } from "../middleware/authArtist";
 const router = express.Router();
 const authArtistController = new AuthArtistController();
 
-router.post(
-  "/register",
-  
-  authArtistController.register
-);
+router.post("/register", authArtist,isSuperAdmin,authArtistController.register);
 router.post("/login", authArtistController.login);
 
 export default router;

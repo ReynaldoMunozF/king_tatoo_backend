@@ -21,6 +21,9 @@ export class Tattoo_artist {
   nickname!: string;
 
   @Column()
+  description?: string;
+
+  @Column()
   first_name!: string;
   
   @Column()

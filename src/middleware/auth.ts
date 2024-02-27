@@ -7,12 +7,13 @@ import { UserTokenData } from "../types/types";
 
 export const auth = (req: Request, res: Response, next: NextFunction) => {
    req.headers;
-
+   
    const token = req.headers.authorization?.split(" ")[1];
-
+   
+   
    if (!token) {
       return res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "Unauthorized",
+         message: "Unauthorized - falta el token",
       });
    }
 
@@ -25,7 +26,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
       next();
    } catch (error) {
       res.status(StatusCodes.UNAUTHORIZED).json({
-         message: "Unauthorized",
+         message: "Unauthorized - soy del catch",
       });
    }
 };

@@ -19,6 +19,12 @@ export class CreateTatooArtist1704813466542 implements MigrationInterface {
             length: "50",
           },
           {
+            name: "description",
+            type: "varchar",
+            length: "255",
+            isNullable:true
+          },
+          {
             name: "password",
             type: "varchar",
             length: "200",
@@ -43,7 +49,7 @@ export class CreateTatooArtist1704813466542 implements MigrationInterface {
             name: "role",
             type: "enum",
             enum: ["user", "admin", "super_admin"],
-            default: '"user"'
+            default: '"admin"'
         },
           {
             name: "active",

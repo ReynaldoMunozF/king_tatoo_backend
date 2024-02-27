@@ -8,8 +8,6 @@ export class User{
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column()
-  username!: string;
 
   @Column()
   first_name!: string;
@@ -21,12 +19,12 @@ export class User{
   email!: string;
 
   @Column()
-  phone?: Number;
+  phone?: string;
   
   @Column()
   birthday?: Date;
   
-  @Column()
+  @Column({select : false})
   password!: string;
   
   @CreateDateColumn()

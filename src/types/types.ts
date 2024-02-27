@@ -1,5 +1,5 @@
 export interface CreateUserRequestBody {
-  username: string;
+ 
   first_name: string;
   last_name: string;
   email: string;
@@ -11,6 +11,7 @@ export interface CreateUserRequestBody {
 
 export interface CreateArtistRequestBody {
   nickname: string;
+  description?:string;
   first_name: string;
   last_name: string;
   email: string;
@@ -32,7 +33,7 @@ export interface LoginUserRequestBody {
 
 export interface UserTokenData {
   user_id: string;
-  name : string;
+ 
  
 }
 export interface ArtistTokenData {
