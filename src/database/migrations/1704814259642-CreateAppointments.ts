@@ -22,6 +22,11 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
             type: "int",
           },
           {
+            name: "schedules_id",
+            type: "int",
+            isNullable:true,
+          },
+          {
             name: "appointment_date",
             type: "date",
            
@@ -53,6 +58,7 @@ export class CreateAppointments1704814259642 implements MigrationInterface {
             referencedColumnNames: ["id"],
             onDelete: "CASCADE",
           },
+         
         ],
       }),
       true

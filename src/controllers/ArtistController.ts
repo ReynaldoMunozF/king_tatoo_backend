@@ -12,7 +12,7 @@ export class ArtistController implements Controller {
       try {
          const artistRepository = AppDataSource.getRepository(Tattoo_artist);
          const allUsers = await artistRepository.find({
-            select: ['nickname','id']
+            select: ['nickname','id','description']
          });
          res.status(200).json(allUsers);
       } catch (error) {

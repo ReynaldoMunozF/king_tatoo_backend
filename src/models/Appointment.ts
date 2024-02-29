@@ -9,6 +9,7 @@ import {
 import { User } from "./User";
 import { Tattoo_artist } from "./tatoo_artist";
 
+
 @Entity("appointments")
 export class Appointment extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -19,6 +20,9 @@ export class Appointment extends BaseEntity {
 
   @Column()
   tattoo_artist_id!: number;
+ 
+  @Column()
+  schedules_id?: number;
 
   @Column()
   appointment_date!: Date;
@@ -36,4 +40,6 @@ export class Appointment extends BaseEntity {
   @ManyToOne(() => Tattoo_artist, (tattoo_artist) => tattoo_artist.appointments)
   @JoinColumn({ name: "tattoo_artist_id" })
   tattoo_artist!: Tattoo_artist;
+
+
 }
